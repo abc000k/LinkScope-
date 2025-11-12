@@ -8,6 +8,14 @@
     <artifactId>MyShortlink-all</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+<!--    #不参与打包-->
+    <packaging>pom</packaging>
+    <modules>
+        <module>admin</module>
+        <module>Project</module>
+        <module>gateway</module>
+        <module>gateway</module>
+    </modules>
     <properties>
         <java.version>17</java.version>
         <spring-boot.version>3.0.7</spring-boot.version>
@@ -23,7 +31,16 @@
         <redisson.version>3.21.3</redisson.version>
         <guava.version>30.0-jre</guava.version>
     </properties>
-
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+        <dependency>
+             <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+        </dependency>
+    </dependencies>
     <dependencyManagement>
         <dependencies>
             <dependency>
