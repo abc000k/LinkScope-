@@ -1,19 +1,21 @@
 package com.nageoffer.shortlink.admin.dao.entity;
 
+import com.baomidou.mybatisplus.annotation.FieldFill;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 
 /**
- * 用户实体类
+ * 用户持久层实体
  */
 @Data
 @TableName("t_user")
 public class UserDO {
 
     /**
-     * ID
+     * id
      */
     private Long id;
 
@@ -43,22 +45,25 @@ public class UserDO {
     private String mail;
 
     /**
-     * 注销时间戳（毫秒）
+     * 注销时间戳
      */
     private Long deletionTime;
 
     /**
      * 创建时间
      */
-    private LocalDateTime createTime;
+    @TableField(fill = FieldFill.INSERT)
+    private Date createTime;
 
     /**
      * 修改时间
      */
-    private LocalDateTime updateTime;
+    @TableField(fill = FieldFill.INSERT_UPDATE)
+    private Date updateTime;
 
     /**
-     * 删除标识：0-未删除，1-已删除
+     * 删除标识 0：未删除 1：已删除
      */
-    private Boolean delFlag;
+    @TableField(fill = FieldFill.INSERT)
+    private Integer delFlag;
 }
