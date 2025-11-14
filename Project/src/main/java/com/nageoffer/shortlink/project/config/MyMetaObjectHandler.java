@@ -15,24 +15,32 @@
  * limitations under the License.
  */
 
-package com.nageoffer.shortlink.Project;
+package com.nageoffer.shortlink.project.config;
 
+import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
+import org.apache.ibatis.reflection.MetaObject;
+import org.springframework.context.annotation.Primary;
+import org.springframework.stereotype.Component;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-
+import java.util.Date;
 
 /**
- * 短链接后管应用
+ * MyBatis-Plus 原数据自动填充类
  * 公众号：马丁玩编程，回复：加群，添加马哥微信（备注：link）获取项目资料
  */
-@SpringBootApplication
-//@EnableDiscoveryClient
-//@EnableFeignClients("com.nageoffer.shortlink.admin.remote")
-//@MapperScan("com.nageoffer.shortlink.admin.dao.mapper")
-public class ShortLinkProjectApplication {
+@Primary
+@Component(value = "myMetaObjectHandlerByAdmin")
+public class MyMetaObjectHandler implements MetaObjectHandler {
 
-    public static void main(String[] args) {
-        SpringApplication.run(ShortLinkProjectApplication.class, args);
+    @Override
+    public void insertFill(MetaObject metaObject) {
+        strictInsertFill(metaObject, "createTime", Date::new, Date.class);
+        strictInsertFill(metaObject, "updateTime", Date::new, Date.class);
+        strictInsertFill(metaObject, "delFlag", () -> 0, Integer.class);
+    }
+
+    @Override
+    public void updateFill(MetaObject metaObject) {
+        strictInsertFill(metaObject, "updateTime", Date::new, Date.class);
     }
 }
