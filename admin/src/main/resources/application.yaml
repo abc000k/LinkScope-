@@ -18,9 +18,6 @@ spring:
           max-idle: 10
           min-idle: 1
           time-between-eviction-runs: 10s
-      letter:
-        pool:
-          charset: utf-8
 #开启驼峰转换
 mybatis-plus:
   configuration:

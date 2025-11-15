@@ -1,8 +1,8 @@
 package com.nageoffer.shortlink.project.controller;
 
 
-import com.nageoffer.shortlink.project.convention.result.Result;
-import com.nageoffer.shortlink.project.convention.result.Results;
+import com.nageoffer.shortlink.project.common.convention.result.Result;
+import com.nageoffer.shortlink.project.common.convention.result.Results;
 import com.nageoffer.shortlink.project.dto.req.ShortLinkCreateReqDTO;
 import com.nageoffer.shortlink.project.dto.resp.ShortLinkCreateRespDTO;
 import com.nageoffer.shortlink.project.service.ShortLinkService;
@@ -23,7 +23,7 @@ public class ShortLinkController {
     /**
      * 创建短链接
      */
-    @PostMapping("/api/short-link/v1/create")
+    @PostMapping("/api/short-link/admin/v1/create")
     public Result<ShortLinkCreateRespDTO> createShortLink(@RequestBody ShortLinkCreateReqDTO requestParam) {
         return Results.success(shortLinkService.createShortLink(requestParam));
     }

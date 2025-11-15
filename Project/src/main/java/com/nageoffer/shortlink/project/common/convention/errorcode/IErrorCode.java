@@ -1,4 +1,4 @@
-package com.nageoffer.shortlink.project.convention.errorcode;
+package com.nageoffer.shortlink.project.common.convention.errorcode;
 
 /**
  * 平台错误码
