@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package com.nageoffer.shortlink.admin.remote.resp;
+package com.nageoffer.shortlink.admin.remote.dto.resp;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
