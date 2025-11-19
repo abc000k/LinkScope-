@@ -4,11 +4,11 @@ import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.lang.UUID;
 import com.alibaba.fastjson2.JSON;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.nageoffer.shortlink.admin.common.constant.RedisCacheConstant;
-import com.nageoffer.shortlink.admin.common.convention.errorcode.BaseErrorCode;
 import com.nageoffer.shortlink.admin.common.convention.exception.ClientException;
+import com.nageoffer.shortlink.admin.common.enums.UserErrorCodeEnum;
 import com.nageoffer.shortlink.admin.dao.entity.UserDO;
 import com.nageoffer.shortlink.admin.dao.mapper.UserMapper;
 import com.nageoffer.shortlink.admin.dto.req.UserLoginReqDTO;
@@ -16,95 +16,88 @@ import com.nageoffer.shortlink.admin.dto.req.UserRegisterReqDTO;
 import com.nageoffer.shortlink.admin.dto.req.UserUpdateReqDTO;
 import com.nageoffer.shortlink.admin.dto.resp.UserLoginRespDTO;
 import com.nageoffer.shortlink.admin.dto.resp.UserRespDTO;
+import com.nageoffer.shortlink.admin.service.GroupService;
 import com.nageoffer.shortlink.admin.service.UserService;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.redisson.api.RBloomFilter;
 import org.redisson.api.RLock;
 import org.redisson.api.RedissonClient;
 import org.springframework.beans.BeanUtils;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.concurrent.TimeUnit;
 
-import static com.nageoffer.shortlink.admin.common.convention.errorcode.BaseErrorCode.USER_NAME_EXIST_ERROR;
+import static com.nageoffer.shortlink.admin.common.constant.RedisCacheConstant.LOCK_USER_REGISTER_KEY;
+import static com.nageoffer.shortlink.admin.common.enums.UserErrorCodeEnum.USER_EXIST;
+import static com.nageoffer.shortlink.admin.common.enums.UserErrorCodeEnum.USER_NAME_EXIST;
+import static com.nageoffer.shortlink.admin.common.enums.UserErrorCodeEnum.USER_SAVE_ERROR;
 
+/**
+ * 用户接口实现层
+ */
 @Service
 @RequiredArgsConstructor
-@Slf4j
 public class UserServiceImpl extends ServiceImpl<UserMapper, UserDO> implements UserService {
 
     private final RBloomFilter<String> userRegisterCachePenetrationBloomFilter;
-    //获得Redis
     private final RedissonClient redissonClient;
-    //
     private final StringRedisTemplate stringRedisTemplate;
+    private final GroupService groupService;
+
     @Override
-    public UserRespDTO getByUsername(String username) {
-        final UserDO one = lambdaQuery().eq(UserDO::getUsername, username).one();
-        if (one == null){
-            //throw new ClientException(BaseErrorCode.USER_NULL);
-            throw new ClientException(BaseErrorCode.USER_NULL.message(), BaseErrorCode.USER_NULL);
+    public UserRespDTO getUserByUsername(String username) {
+        LambdaQueryWrapper<UserDO> queryWrapper = Wrappers.lambdaQuery(UserDO.class)
+                .eq(UserDO::getUsername, username);
+        UserDO userDO = baseMapper.selectOne(queryWrapper);
+        if (userDO == null) {
+            throw new ClientException(UserErrorCodeEnum.USER_NULL);
         }
-        UserRespDTO userRespDTO = new UserRespDTO();
-        BeanUtils.copyProperties(one, userRespDTO);
-        return userRespDTO;
+        UserRespDTO result = new UserRespDTO();
+        BeanUtils.copyProperties(userDO, result);
+        return result;
     }
 
     @Override
-    public boolean actualGetByUsername(String username) {
-//        final UserDO one = lambdaQuery().eq(UserDO::getUsername, username).one();
-//        if (one == null){
-//            return false;
-//        }
-//        return true;
-        //bloom过滤器 检测用户名
-        log.info("bloom过滤器 检测用户名:{}", username);
+    public Boolean hasUsername(String username) {
         return !userRegisterCachePenetrationBloomFilter.contains(username);
     }
 
     @Override
     public void register(UserRegisterReqDTO requestParam) {
-        //判断用户名是否已存在
-        if (!actualGetByUsername(requestParam.getUsername())){
-            throw new ClientException(USER_NAME_EXIST_ERROR);
+        if (!hasUsername(requestParam.getUsername())) {
+            throw new ClientException(USER_NAME_EXIST);
         }
-        String KeyUser= RedisCacheConstant.LOCK_USER_REGISTER_KEY+requestParam.getUsername();
-        final RLock lock = redissonClient.getLock(KeyUser);
-        try{
-            if (lock.tryLock()){
-                final boolean save = save(BeanUtil.toBean(requestParam, UserDO.class));//插入数据库
-                log.info("用户注册成功:{}", save);
-                if (!save){
-                    throw new ClientException(BaseErrorCode.USER_REGISTER_ERROR);
+        RLock lock = redissonClient.getLock(LOCK_USER_REGISTER_KEY + requestParam.getUsername());
+        try {
+            if (lock.tryLock()) {
+                try {
+                    int inserted = baseMapper.insert(BeanUtil.toBean(requestParam, UserDO.class));
+                    if (inserted < 1) {
+                        throw new ClientException(USER_SAVE_ERROR);
+                    }
+                } catch (DuplicateKeyException ex) {
+                    throw new ClientException(USER_EXIST);
                 }
-                //添加bloom过滤器
                 userRegisterCachePenetrationBloomFilter.add(requestParam.getUsername());
+                groupService.saveGroup(requestParam.getUsername(), "默认分组");
+                return;
             }
-            else {
-                //用户名已存在
-                throw new ClientException(USER_NAME_EXIST_ERROR);
-            }
-        }finally {
+            throw new ClientException(USER_NAME_EXIST);
+        } finally {
             lock.unlock();
         }
     }
 
     @Override
     public void update(UserUpdateReqDTO requestParam) {
-//        //删除
-//        remove(lambdaQuery().eq(UserDO::getUsername, requestParam.getUsername()));
-//        //在过滤器中删除
-//
-//        userRegisterCachePenetrationBloomFilter
-//        //插入
-//        save(BeanUtil.toBean(requestParam, UserDO.class));
-//        userRegisterCachePenetrationBloomFilter.add(requestParam.getUsername());
-        //判断是否是当前登入用户
-        //修改 其实username没有修改
-        lambdaUpdate().eq(UserDO::getUsername,requestParam.getUsername()).update(BeanUtil.toBean(requestParam,UserDO.class));
+        // TODO 验证当前用户名是否为登录用户
+        LambdaUpdateWrapper<UserDO> updateWrapper = Wrappers.lambdaUpdate(UserDO.class)
+                .eq(UserDO::getUsername, requestParam.getUsername());
+        baseMapper.update(BeanUtil.toBean(requestParam, UserDO.class), updateWrapper);
     }
+
     @Override
     public UserLoginRespDTO login(UserLoginReqDTO requestParam) {
         LambdaQueryWrapper<UserDO> queryWrapper = Wrappers.lambdaQuery(UserDO.class)
