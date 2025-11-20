@@ -30,6 +30,7 @@
         <hutool-all.version>5.8.20</hutool-all.version>
         <redisson.version>3.21.3</redisson.version>
         <guava.version>30.0-jre</guava.version>
+        <jsoup.version>1.15.3</jsoup.version>
     </properties>
     <dependencies>
         <dependency>
@@ -91,11 +92,7 @@
                 <version>${fastjson2.version}</version>
             </dependency>
 
-            <dependency>
-                <groupId>com.github.dozermapper</groupId>
-                <artifactId>dozer-core</artifactId>
-                <version>${dozer-core.version}</version>
-            </dependency>
+
 
             <dependency>
                 <groupId>cn.hutool</groupId>
