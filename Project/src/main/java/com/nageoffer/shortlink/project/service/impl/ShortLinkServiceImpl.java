@@ -74,24 +74,23 @@ public class ShortLinkServiceImpl extends ServiceImpl<ShortLinkMapper, ShortLink
                 .build();
         try {
             baseMapper.insert(shortLinkDO);
+            shortLinkGotoMapper.insert(linkGotoDO);
         } catch (DuplicateKeyException ex) {
             LambdaQueryWrapper<ShortLinkDO> queryWrapper = Wrappers.lambdaQuery(ShortLinkDO.class)
                     .eq(ShortLinkDO::getFullShortUrl, fullShortUrl);
             ShortLinkDO hasShortLinkDO = baseMapper.selectOne(queryWrapper);
-            shortLinkGotoMapper.insert(linkGotoDO);
             if (hasShortLinkDO != null) {
                 log.warn("短链接：{} 重复入库", fullShortUrl);
                 throw new ServiceException("短链接生成重复");
             }
         }
-        shortUriCreateCachePenetrationBloomFilter.add(shortLinkSuffix);
+        shortUriCreateCachePenetrationBloomFilter.add(fullShortUrl);
         return ShortLinkCreateRespDTO.builder()
-                .fullShortUrl("http//"+shortLinkDO.getFullShortUrl())
+                .fullShortUrl("http://" + shortLinkDO.getFullShortUrl())
                 .originUrl(requestParam.getOriginUrl())
                 .gid(requestParam.getGid())
                 .build();
     }
-
     @Override
     public IPage<ShortLinkPageRespDTO> pageShortLink(ShortLinkPageReqDTO requestParam) {
         LambdaQueryWrapper<ShortLinkDO> queryWrapper = Wrappers.lambdaQuery(ShortLinkDO.class)
