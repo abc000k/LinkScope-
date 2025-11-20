@@ -1,12 +1,12 @@
-package com.nageoffer.shortlink.project.dto.req;
+package com.nageoffer.shortlink.admin.remote.dto.req;
 
 import lombok.Data;
 
 /**
- * 回收站恢复功能
+ * 回收站移除功能
  */
 @Data
-public class RecycleBinRecoverReqDTO {
+public class RecycleBinRemoveReqDTO {
 
     /**
      * 分组标识
