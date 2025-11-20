@@ -19,6 +19,10 @@ spring:
       letter:
         pool:
           charset: utf-8
+  mvc:
+    view:
+      prefix: /templates/
+      suffix: .html
 #开启驼峰转换
 mybatis-plus:
 

@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>跳转失败 - 链接无效</title>
+    <!-- 引入字体图标 -->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* 全局重置 & 基础样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Inter", "Microsoft Yahei", Arial, sans-serif;
+        }
+
+        /* 页面背景：渐变+轻微噪点，增强质感 */
+        body {
+            background: linear-gradient(135deg, #f0f8fb 0%, #e8f4f8 50%, #f5fafe 100%);
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%234096ff' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        /* 核心容器：渐变边框+立体阴影+滑入动画 */
+        .error-container {
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow:
+                    0 8px 30px rgba(64, 150, 255, 0.08),
+                    0 2px 10px rgba(0, 0, 0, 0.05),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+            padding: 50px 35px;
+            max-width: 520px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            /* 渐变边框效果 */
+            border: 1px solid transparent;
+            background-clip: padding-box, border-box;
+            background-origin: padding-box, border-box;
+            background-image:
+                    linear-gradient(#ffffff, #ffffff),
+                    linear-gradient(135deg, #e8f4f8, #4096ff, #69b1ff);
+            /* 页面加载动画 */
+            animation: slideUp 0.6s ease-out forwards;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        /* 装饰性角落元素 */
+        .error-container::before,
+        .error-container::after {
+            content: "";
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            opacity: 0.06;
+            z-index: 0;
+        }
+        .error-container::before {
+            top: -15px;
+            right: -15px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ff6b6b'%3E%3Cpath d='M18.36 6.64L17 8l1.36 1.36L16 10l1.36 1.36L19 9.64V14h2V9.64l1.64 1.64L23 10l-1.36-1.36L23 7.29l-1.64-1.64L20 8.36V4h-2v4.36L18.36 6.64zM14.71 15.71L13 14.41V19.5l2.89-2.89 1.41 1.42L14 21v-1.59l-2.29 2.29-1.42-1.42L11 19.5v-5.09l-1.71-1.7-1.41 1.42 3.12 3.12L6 12.5v-2l8.71-8.71 1.41 1.42L8 10.5v2l4.71 4.71z'/%3E%3C/svg%3E") no-repeat center;
+        }
+        .error-container::after {
+            bottom: -15px;
+            left: -15px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%234096ff'%3E%3Cpath d='M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z'/%3E%3C/svg%3E") no-repeat center;
+        }
+
+        /* 错误图标：动态效果+层次感 */
+        .error-icon {
+            font-size: 72px;
+            color: #ff6b6b;
+            margin-bottom: 24px;
+            position: relative;
+            /* 图标脉冲+轻微旋转动画 */
+            animation: pulse 2s infinite ease-in-out, rotate 3s infinite ease-in-out alternate;
+            filter: drop-shadow(0 4px 8px rgba(255, 107, 107, 0.15));
+        }
+        /* 图标装饰光晕 */
+        .error-icon::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100px;
+            height: 100px;
+            background: rgba(255, 107, 107, 0.1);
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        /* 标题样式：分层排版 */
+        .error-title {
+            font-size: 28px;
+            color: #2d3748;
+            margin-bottom: 8px;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+        }
+        .error-subtitle {
+            font-size: 16px;
+            color: #718096;
+            margin-bottom: 20px;
+            font-weight: 400;
+            line-height: 1.5;
+        }
+
+        /* 描述文本：优化行高和间距 */
+        .error-desc {
+            font-size: 15px;
+            color: #4a5568;
+            line-height: 1.8;
+            margin-bottom: 35px;
+            padding: 0 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* 按钮组：优化间距和响应式 */
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* 通用按钮样式：增强交互动效 */
+        .btn {
+            padding: 14px 28px;
+            border-radius: 10px;
+            border: none;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        /* 按钮点击波纹效果 */
+        .btn::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+        }
+        .btn:active::after {
+            width: 300px;
+            height: 300px;
+            opacity: 0;
+        }
+
+        /* 主要按钮（返回首页） */
+        .btn-primary {
+            background: linear-gradient(135deg, #4096ff 0%, #3088ff 100%);
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(64, 150, 255, 0.2);
+        }
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #3088ff 0%, #2078ff 100%);
+            box-shadow: 0 6px 18px rgba(64, 150, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        .btn-primary:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 8px rgba(64, 150, 255, 0.2);
+        }
+
+        /* 次要按钮（刷新重试） */
+        .btn-secondary {
+            background: #f8fafc;
+            color: #2d3748;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+        .btn-secondary:hover {
+            background: #f1f5f9;
+            border-color: #cbd5e1;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+            transform: translateY(-2px);
+        }
+        .btn-secondary:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+        }
+
+        /* 倒计时提示：美化样式 */
+        .countdown-tip {
+            color: #94a3b8;
+            font-size: 14px;
+            margin-top: 0;
+            padding: 12px;
+            background: #f8fafc;
+            border-radius: 8px;
+            border: 1px solid #eaf0f5;
+            display: inline-block;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* 底部信息栏 */
+        .footer-info {
+            margin-top: 20px;
+            font-size: 13px;
+            color: #a0aec0;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* 动画定义 */
+        @keyframes slideUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.05);
+                opacity: 0.9;
+            }
+        }
+        @keyframes rotate {
+            0% {
+                transform: rotate(-2deg);
+            }
+            100% {
+                transform: rotate(2deg);
+            }
+        }
+
+        /* 移动端适配（更细致） */
+        @media (max-width: 480px) {
+            .error-container {
+                padding: 40px 25px;
+                margin: 10px 0;
+            }
+
+            .error-icon {
+                font-size: 60px;
+                margin-bottom: 20px;
+            }
+
+            .error-title {
+                font-size: 24px;
+            }
+
+            .error-subtitle {
+                font-size: 15px;
+            }
+
+            .error-desc {
+                font-size: 14px;
+                padding: 0;
+                margin-bottom: 30px;
+            }
+
+            .btn {
+                padding: 12px 24px;
+                width: 100%;
+            }
+
+            .btn-group {
+                gap: 12px;
+            }
+
+            .countdown-tip {
+                font-size: 13px;
+                padding: 10px 15px;
+                width: 100%;
+            }
+
+            .footer-info {
+                font-size: 12px;
+                padding: 0 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="error-container">
+    <!-- 错误图标 -->
+    <div class="error-icon">
+        <i class="fas fa-link-slash"></i>
+    </div>
+
+    <!-- 标题 & 副标题 -->
+    <h1 class="error-title">链接跳转失败</h1>
+    <p class="error-subtitle">很抱歉，访问遇到问题</p>
+
+    <!-- 描述文本 -->
+    <p class="error-desc">
+        你访问的短链接可能已过期、被删除，或输入的地址有误<br>
+        请检查链接拼写是否正确，或返回首页重新获取有效链接
+    </p>
+
+    <!-- 操作按钮 -->
+    <div class="btn-group">
+        <button class="btn btn-primary" onclick="window.location.href='/'">返回首页</button>
+        <button class="btn btn-secondary" onclick="window.location.reload()">刷新重试</button>
+    </div>
+
+    <!-- 自动返回提示（美化版） -->
+    <p class="countdown-tip" id="countdownTip">将在 5 秒后自动返回首页...</p>
+
+    <!-- 底部信息 -->
+    <div class="footer-info">
+        如有疑问，请联系客服：400-xxxx-xxxx | © 2025 短链接服务平台
+    </div>
+</div>
+
+<script>
+    // 自动返回首页逻辑（优化版）
+    let countdown = 5;
+    const countdownTip = document.getElementById('countdownTip');
+
+    const timer = setInterval(() => {
+        countdownTip.innerText = `将在 ${countdown} 秒后自动返回首页...`;
+        countdown--;
+
+        if (countdown < 0) {
+            clearInterval(timer);
+            window.location.href = '/'; // 替换为你的首页URL
+        }
+    }, 1000);
+
+    // 可选：监听页面隐藏，停止倒计时（避免后台跳转）
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+            clearInterval(timer);
+        } else {
+            // 页面重新显示，重置倒计时
+            countdown = 5;
+        }
+    });
+</script>
+</body>
+</html>
