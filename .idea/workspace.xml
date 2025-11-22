@@ -4,8 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2dfd02b1-2630-4ecf-9997-c11047de6622" name="更改" comment="开发短链接监控分页查询日志并优化时间复杂度">
+    <list default="true" id="2dfd02b1-2630-4ecf-9997-c11047de6622" name="更改" comment="开发短链接监控单个链接PV,UV,UIP">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/controller/ShortLinkStatsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/controller/ShortLinkStatsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/dao/mapper/LinkAccessLogsMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/dao/mapper/LinkAccessLogsMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/dao/mapper/LinkAccessStatsMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/dao/mapper/LinkAccessStatsMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/dao/mapper/LinkBrowserStatsMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/dao/mapper/LinkBrowserStatsMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/dao/mapper/LinkDeviceStatsMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/dao/mapper/LinkDeviceStatsMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/dao/mapper/LinkLocaleStatsMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/dao/mapper/LinkLocaleStatsMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/dao/mapper/LinkNetworkStatsMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/dao/mapper/LinkNetworkStatsMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/dao/mapper/LinkOsStatsMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/dao/mapper/LinkOsStatsMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/service/ShortLinkStatsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/service/ShortLinkStatsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/service/impl/RecycleBinServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/service/impl/ShortLinkServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/service/impl/ShortLinkStatsServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/service/impl/UrlTitleServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/main/java/com/nageoffer/shortlink/admin/controller/ShortLinkStatsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/main/java/com/nageoffer/shortlink/admin/controller/ShortLinkStatsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/main/java/com/nageoffer/shortlink/admin/remote/ShortLinkRemoteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/main/java/com/nageoffer/shortlink/admin/remote/ShortLinkRemoteService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,7 +130,7 @@
       <recent name="com.nageoffer.shortlink.admin.config" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.ShortLinkApplication">
+  <component name="RunManager" selected="Spring Boot.ShortLinkAdminApplication">
     <configuration name="notfound.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/MyShortlink/shortlink-Project/templates/notfound.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
@@ -155,8 +170,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.ShortLinkApplication" />
         <item itemvalue="Spring Boot.ShortLinkAdminApplication" />
+        <item itemvalue="Spring Boot.ShortLinkApplication" />
         <item itemvalue="JavaScript 调试.notfound.html" />
       </list>
     </recent_temporary>
@@ -181,15 +196,7 @@
       <workItem from="1762999205755" duration="14277000" />
       <workItem from="1763168485603" duration="386000" />
       <workItem from="1763168887696" duration="57983000" />
-      <workItem from="1763792546172" duration="2569000" />
-    </task>
-    <task id="LOCAL-00001" summary="第一次提交">
-      <option name="closed" value="true" />
-      <created>1762745266437</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1762745266437</updated>
+      <workItem from="1763792546172" duration="5795000" />
     </task>
     <task id="LOCAL-00002" summary="第一次提交">
       <option name="closed" value="true" />
@@ -567,7 +574,23 @@
       <option name="project" value="LOCAL" />
       <updated>1763804621043</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="开发短链接监控分页功能">
+      <option name="closed" value="true" />
+      <created>1763809670711</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1763809670711</updated>
+    </task>
+    <task id="LOCAL-00050" summary="开发短链接监控单个链接PV,UV,UIP">
+      <option name="closed" value="true" />
+      <created>1763810379043</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1763810379043</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -597,8 +620,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="修改bug" />
-    <MESSAGE value="修改bug,并返回友好信息" />
     <MESSAGE value="提交分页插件" />
     <MESSAGE value="开发分页查询功能" />
     <MESSAGE value="短链接路径个改正" />
@@ -622,7 +643,9 @@
     <MESSAGE value="开发短链接监控跳转获得详细功能" />
     <MESSAGE value="开发短链接监控查询跳转详细功能" />
     <MESSAGE value="开发短链接监控分页查询日志并优化时间复杂度" />
-    <option name="LAST_COMMIT_MESSAGE" value="开发短链接监控分页查询日志并优化时间复杂度" />
+    <MESSAGE value="开发短链接监控分页功能" />
+    <MESSAGE value="开发短链接监控单个链接PV,UV,UIP" />
+    <option name="LAST_COMMIT_MESSAGE" value="开发短链接监控单个链接PV,UV,UIP" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
