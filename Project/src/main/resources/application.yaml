@@ -36,6 +36,8 @@ mybatis-plus:
       logic-not-delete-value: 0 # 逻辑未删除值(默认为 0)
   mapper-locations: classpath:mapper/*.xml
 short-link:
+  domain:
+    default: nurl.ink:8001
   stats:
     locale:
       amap-key: 57fd8c0d0fbd8b07a70bba4dc106d839
