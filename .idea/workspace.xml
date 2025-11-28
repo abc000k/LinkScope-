@@ -4,22 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2dfd02b1-2630-4ecf-9997-c11047de6622" name="更改" comment="开发短链接批量创建功能">
-      <change afterPath="$PROJECT_DIR$/admin/src/main/java/com/nageoffer/shortlink/admin/remote/dto/req/ShortLinkBatchCreateReqDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/main/java/com/nageoffer/shortlink/admin/remote/dto/resp/ShortLinkBaseInfoRespDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/main/java/com/nageoffer/shortlink/admin/remote/dto/resp/ShortLinkBatchCreateRespDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/src/main/java/com/nageoffer/shortlink/admin/toolkit/EasyExcelWebUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Project/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/controller/ShortLinkController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/controller/ShortLinkController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/dto/req/ShortLinkCreateReqDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/dto/req/ShortLinkCreateReqDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/service/ShortLinkService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/service/ShortLinkService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/service/impl/ShortLinkServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/service/impl/ShortLinkServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/admin/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/src/main/java/com/nageoffer/shortlink/admin/controller/ShortLinkController.java" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/main/java/com/nageoffer/shortlink/admin/controller/ShortLinkController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/src/main/java/com/nageoffer/shortlink/admin/remote/ShortLinkRemoteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/main/java/com/nageoffer/shortlink/admin/remote/ShortLinkRemoteService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-    </list>
+    <list default="true" id="2dfd02b1-2630-4ecf-9997-c11047de6622" name="更改" comment="开发短链接批量创建短链接" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -195,15 +180,7 @@
       <workItem from="1763168485603" duration="386000" />
       <workItem from="1763168887696" duration="57983000" />
       <workItem from="1763792546172" duration="9611000" />
-      <workItem from="1764250097650" duration="3079000" />
-    </task>
-    <task id="LOCAL-00006" summary="短链接分组初始">
-      <option name="closed" value="true" />
-      <created>1763000877666</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1763000877666</updated>
+      <workItem from="1764250097650" duration="3467000" />
     </task>
     <task id="LOCAL-00007" summary="开发持久层基础属性">
       <option name="closed" value="true" />
@@ -589,7 +566,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764299325594</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="开发短链接批量创建短链接">
+      <option name="closed" value="true" />
+      <created>1764300600211</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1764300600211</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -619,7 +604,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="后管系统调用中台" />
     <MESSAGE value="数据库配置变更" />
     <MESSAGE value="短链接分组分表" />
     <MESSAGE value="优化短链接后管远程调用包目录" />
@@ -642,9 +626,10 @@
     <MESSAGE value="开发短链接监控分组链接PV,UV,UIP" />
     <MESSAGE value="开发短链接监控分组链接日志" />
     <MESSAGE value="开发短链接創建默認,跳轉域名:端口" />
-    <MESSAGE value="开发短链接前端" />
     <MESSAGE value="开发短链接批量创建功能" />
-    <option name="LAST_COMMIT_MESSAGE" value="开发短链接批量创建功能" />
+    <MESSAGE value="开发短链接前端" />
+    <MESSAGE value="开发短链接批量创建短链接" />
+    <option name="LAST_COMMIT_MESSAGE" value="开发短链接批量创建短链接" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
