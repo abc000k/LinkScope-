@@ -6,10 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="2dfd02b1-2630-4ecf-9997-c11047de6622" name="更改" comment="请求接口限制">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Project/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/controller/ShortLinkController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/controller/ShortLinkController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/controller/ShortLinkController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/admin/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/src/main/java/com/nageoffer/shortlink/admin/controller/ShortLinkController.java" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/main/java/com/nageoffer/shortlink/admin/controller/ShortLinkController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -186,15 +184,7 @@
       <workItem from="1763168485603" duration="386000" />
       <workItem from="1763168887696" duration="57983000" />
       <workItem from="1763792546172" duration="9611000" />
-      <workItem from="1764250097650" duration="12845000" />
-    </task>
-    <task id="LOCAL-00014" summary="增加短链接功能">
-      <option name="closed" value="true" />
-      <created>1763127713697</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1763127713697</updated>
+      <workItem from="1764250097650" duration="15338000" />
     </task>
     <task id="LOCAL-00015" summary="增加短链接分页功能">
       <option name="closed" value="true" />
@@ -580,7 +570,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764406656511</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="请求接口限制">
+      <option name="closed" value="true" />
+      <created>1764407649940</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1764407649940</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
