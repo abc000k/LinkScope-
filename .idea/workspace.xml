@@ -4,7 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2dfd02b1-2630-4ecf-9997-c11047de6622" name="更改" comment="开发短链接批量创建短链接" />
+    <list default="true" id="2dfd02b1-2630-4ecf-9997-c11047de6622" name="更改" comment="重构短链接修改分组功能">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/dto/biz/ShortLinkStatsRecordDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/mq/consumer/DelayShortLinkStatsConsumer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/mq/producer/DelayShortLinkStatsProducer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/service/LinkStatsTodayService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/service/impl/LinkStatsTodayServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/common/constant/RedisKeyConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/common/constant/RedisKeyConstant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/dao/entity/ShortLinkDO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/dao/entity/ShortLinkDO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/dto/req/ShortLinkUpdateReqDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/dto/req/ShortLinkUpdateReqDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/service/ShortLinkService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/service/ShortLinkService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/service/impl/RecycleBinServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/service/impl/RecycleBinServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/service/impl/ShortLinkServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/service/impl/ShortLinkServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/service/impl/ShortLinkStatsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/service/impl/ShortLinkStatsServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/src/main/resources/mapper/LinkMappeer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Project/src/main/resources/mapper/LinkMappeer.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/main/java/com/nageoffer/shortlink/admin/remote/dto/req/ShortLinkUpdateReqDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/main/java/com/nageoffer/shortlink/admin/remote/dto/req/ShortLinkUpdateReqDTO.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -180,15 +197,7 @@
       <workItem from="1763168485603" duration="386000" />
       <workItem from="1763168887696" duration="57983000" />
       <workItem from="1763792546172" duration="9611000" />
-      <workItem from="1764250097650" duration="3467000" />
-    </task>
-    <task id="LOCAL-00007" summary="开发持久层基础属性">
-      <option name="closed" value="true" />
-      <created>1763001282132</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1763001282132</updated>
+      <workItem from="1764250097650" duration="8757000" />
     </task>
     <task id="LOCAL-00008" summary="修改登入时间为30天">
       <option name="closed" value="true" />
@@ -574,7 +583,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764300600211</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="修复短链接跳转空指针">
+      <option name="closed" value="true" />
+      <created>1764301116882</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1764301116882</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -604,9 +621,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="数据库配置变更" />
-    <MESSAGE value="短链接分组分表" />
-    <MESSAGE value="优化短链接后管远程调用包目录" />
     <MESSAGE value="完善后管分组功能" />
     <MESSAGE value="修复登入功能,并删除电话加密" />
     <MESSAGE value="前端传递有效时间序列话" />
@@ -629,7 +643,10 @@
     <MESSAGE value="开发短链接批量创建功能" />
     <MESSAGE value="开发短链接前端" />
     <MESSAGE value="开发短链接批量创建短链接" />
-    <option name="LAST_COMMIT_MESSAGE" value="开发短链接批量创建短链接" />
+    <MESSAGE value="修复短链接跳转空指针" />
+    <MESSAGE value="修复短链接一系列bug" />
+    <MESSAGE value="重构短链接修改分组功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="重构短链接修改分组功能" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
