@@ -1,9 +1,28 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package com.nageoffer.shortlink.project.toolkit;
 
 import cn.hutool.core.date.DateUnit;
 import cn.hutool.core.date.DateUtil;
+import cn.hutool.core.util.StrUtil;
 import jakarta.servlet.http.HttpServletRequest;
 
+import java.net.URI;
 import java.util.Date;
 import java.util.Optional;
 
@@ -11,6 +30,7 @@ import static com.nageoffer.shortlink.project.common.constant.ShortLinkConstant.
 
 /**
  * 短链接工具类
+ * 公众号：马丁玩编程，回复：加群，添加马哥微信（备注：link）获取项目资料
  */
 public class LinkUtil {
 
@@ -125,5 +145,28 @@ public class LinkUtil {
         // 这里简单判断IP地址范围，您可能需要更复杂的逻辑
         // 例如，通过调用IP地址库或调用第三方服务来判断网络类型
         return actualIp.startsWith("192.168.") || actualIp.startsWith("10.") ? "WIFI" : "Mobile";
+    }
+
+    /**
+     * 获取原始链接中的域名
+     * 如果原始链接包含 www 开头的话需要去掉
+     *
+     * @param url 创建或者修改短链接的原始链接
+     * @return 原始链接中的域名
+     */
+    public static String extractDomain(String url) {
+        String domain = null;
+        try {
+            URI uri = new URI(url);
+            String host = uri.getHost();
+            if (StrUtil.isNotBlank(host)) {
+                domain = host;
+                if (domain.startsWith("www.")) {
+                    domain = host.substring(4);
+                }
+            }
+        } catch (Exception ignored) {
+        }
+        return domain;
     }
 }

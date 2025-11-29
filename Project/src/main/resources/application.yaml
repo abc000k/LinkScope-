@@ -38,6 +38,16 @@ mybatis-plus:
 short-link:
   domain:
     default: nurl.ink:8001
+  goto-domain:
+    white-list:
+      enable: false
+      names: '拿个offer,知乎,掘金,博客园'
+      details:
+        - nageoffer.com
+        - zhihu.com
+        - juejin.cn
+        - cnblogs.com
+
   stats:
     locale:
       amap-key: 57fd8c0d0fbd8b07a70bba4dc106d839
