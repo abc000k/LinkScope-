@@ -5,22 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2dfd02b1-2630-4ecf-9997-c11047de6622" name="更改" comment="重构短链接修改分组功能">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/dto/biz/ShortLinkStatsRecordDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/mq/consumer/DelayShortLinkStatsConsumer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/mq/producer/DelayShortLinkStatsProducer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/service/LinkStatsTodayService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/service/impl/LinkStatsTodayServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/common/constant/RedisKeyConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/common/constant/RedisKeyConstant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/dao/entity/ShortLinkDO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/dao/entity/ShortLinkDO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/dto/req/ShortLinkUpdateReqDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/dto/req/ShortLinkUpdateReqDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/service/ShortLinkService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/service/ShortLinkService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/service/impl/RecycleBinServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/service/impl/RecycleBinServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/service/impl/ShortLinkServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/service/impl/ShortLinkServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/service/impl/ShortLinkStatsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/service/impl/ShortLinkStatsServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project/src/main/resources/mapper/LinkMappeer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Project/src/main/resources/mapper/LinkMappeer.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/src/main/java/com/nageoffer/shortlink/admin/remote/dto/req/ShortLinkUpdateReqDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/main/java/com/nageoffer/shortlink/admin/remote/dto/req/ShortLinkUpdateReqDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/src/main/java/com/nageoffer/shortlink/admin/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/main/java/com/nageoffer/shortlink/admin/service/impl/UserServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -197,23 +182,7 @@
       <workItem from="1763168485603" duration="386000" />
       <workItem from="1763168887696" duration="57983000" />
       <workItem from="1763792546172" duration="9611000" />
-      <workItem from="1764250097650" duration="8757000" />
-    </task>
-    <task id="LOCAL-00008" summary="修改登入时间为30天">
-      <option name="closed" value="true" />
-      <created>1763040794296</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1763040794296</updated>
-    </task>
-    <task id="LOCAL-00009" summary="登入功能上下文">
-      <option name="closed" value="true" />
-      <created>1763041816047</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1763041816047</updated>
+      <workItem from="1764250097650" duration="9125000" />
     </task>
     <task id="LOCAL-00010" summary="短链接分组功能">
       <option name="closed" value="true" />
@@ -591,7 +560,23 @@
       <option name="project" value="LOCAL" />
       <updated>1764301116882</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="重构短链接修改分组功能">
+      <option name="closed" value="true" />
+      <created>1764403860788</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1764403860788</updated>
+    </task>
+    <task id="LOCAL-00058" summary="重构短链接修改分组功能">
+      <option name="closed" value="true" />
+      <created>1764403870992</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1764403870993</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
