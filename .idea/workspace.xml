@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2dfd02b1-2630-4ecf-9997-c11047de6622" name="更改" comment="通过消息幂解决重复消费">
-      <change beforePath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/dto/biz/ShortLinkStatsRecordDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/dto/biz/ShortLinkStatsRecordDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/mq/consumer/DelayShortLinkStatsConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/mq/consumer/DelayShortLinkStatsConsumer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/mq/producer/DelayShortLinkStatsProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/mq/producer/DelayShortLinkStatsProducer.java" afterDir="false" />
+    <list default="true" id="2dfd02b1-2630-4ecf-9997-c11047de6622" name="更改" comment="RedisKey规范">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/common/constant/RedisKeyConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/common/constant/RedisKeyConstant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/config/RedisStreamConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/config/RedisStreamConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/mq/producer/ShortLinkStatsSaveProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/mq/producer/ShortLinkStatsSaveProducer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Project/src/main/resources/application.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,23 +186,7 @@
       <workItem from="1763168485603" duration="386000" />
       <workItem from="1763168887696" duration="57983000" />
       <workItem from="1763792546172" duration="9611000" />
-      <workItem from="1764250097650" duration="18290000" />
-    </task>
-    <task id="LOCAL-00017" summary="提交分页插件">
-      <option name="closed" value="true" />
-      <created>1763179806799</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1763179806799</updated>
-    </task>
-    <task id="LOCAL-00018" summary="开发分页查询功能">
-      <option name="closed" value="true" />
-      <created>1763180828848</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1763180828848</updated>
+      <workItem from="1764250097650" duration="19510000" />
     </task>
     <task id="LOCAL-00019" summary="短链接路径个改正">
       <option name="closed" value="true" />
@@ -578,7 +564,23 @@
       <option name="project" value="LOCAL" />
       <updated>1764490778731</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="通过消息幂解决重复消费">
+      <option name="closed" value="true" />
+      <created>1764491395939</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1764491395939</updated>
+    </task>
+    <task id="LOCAL-00067" summary="RedisKey规范">
+      <option name="closed" value="true" />
+      <created>1764492340035</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1764492340036</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -608,7 +610,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="开发短链接跳转失败页面" />
     <MESSAGE value="开发短链接目标网站标题接口" />
     <MESSAGE value="回收站开发" />
     <MESSAGE value="开发短链接获得原始网站的图标" />
@@ -633,7 +634,8 @@
     <MESSAGE value="请求接口限制" />
     <MESSAGE value="通过Stream异步处理短链接监控" />
     <MESSAGE value="通过消息幂解决重复消费" />
-    <option name="LAST_COMMIT_MESSAGE" value="通过消息幂解决重复消费" />
+    <MESSAGE value="RedisKey规范" />
+    <option name="LAST_COMMIT_MESSAGE" value="RedisKey规范" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
