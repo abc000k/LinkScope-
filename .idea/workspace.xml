@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2dfd02b1-2630-4ecf-9997-c11047de6622" name="更改" comment="通过Stream异步处理短链接监控">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="2dfd02b1-2630-4ecf-9997-c11047de6622" name="更改" comment="通过消息幂解决重复消费">
+      <change beforePath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/dto/biz/ShortLinkStatsRecordDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/dto/biz/ShortLinkStatsRecordDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/mq/consumer/DelayShortLinkStatsConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/mq/consumer/DelayShortLinkStatsConsumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/mq/producer/DelayShortLinkStatsProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project/src/main/java/com/nageoffer/shortlink/project/mq/producer/DelayShortLinkStatsProducer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +70,7 @@
     "Spring Boot.ShortLinkApplication.executor": "Run",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/code/MyShortlink/admin/src/main/resources/lua",
+    "last_opened_file_path": "D:/code/MyShortlink/Project/src/main/java/com/nageoffer/shortlink/project/mq/consumer",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -98,11 +100,11 @@
       <recent name="com.nageoffer.shortlink.admin.config" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\code\MyShortlink\Project\src\main\java\com\nageoffer\shortlink\project\mq\consumer" />
       <recent name="D:\code\MyShortlink\admin\src\main\resources\lua" />
       <recent name="D:\code\MyShortlink" />
       <recent name="D:\code\MyShortlink\admin\src\main\java\com\nageoffer\shortlink\admin\remote\dto\resp" />
       <recent name="D:\code\MyShortlink\admin\src\main\java\com\nageoffer\shortlink\admin\dto\resp" />
-      <recent name="D:\code\MyShortlink\Project\src\main\java\com\nageoffer\shortlink\project\toolkit" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\code\MyShortlink\Project\src\main\resources" />
@@ -182,15 +184,7 @@
       <workItem from="1763168485603" duration="386000" />
       <workItem from="1763168887696" duration="57983000" />
       <workItem from="1763792546172" duration="9611000" />
-      <workItem from="1764250097650" duration="17905000" />
-    </task>
-    <task id="LOCAL-00016" summary="修改bug,并返回友好信息">
-      <option name="closed" value="true" />
-      <created>1763175077856</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1763175077856</updated>
+      <workItem from="1764250097650" duration="18290000" />
     </task>
     <task id="LOCAL-00017" summary="提交分页插件">
       <option name="closed" value="true" />
@@ -576,7 +570,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764421730287</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="通过消息幂解决重复消费">
+      <option name="closed" value="true" />
+      <created>1764490778731</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1764490778731</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -606,7 +608,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="防止短链接穿透,雪崩,击穿" />
     <MESSAGE value="开发短链接跳转失败页面" />
     <MESSAGE value="开发短链接目标网站标题接口" />
     <MESSAGE value="回收站开发" />
@@ -631,7 +632,8 @@
     <MESSAGE value="后管风控管理" />
     <MESSAGE value="请求接口限制" />
     <MESSAGE value="通过Stream异步处理短链接监控" />
-    <option name="LAST_COMMIT_MESSAGE" value="通过Stream异步处理短链接监控" />
+    <MESSAGE value="通过消息幂解决重复消费" />
+    <option name="LAST_COMMIT_MESSAGE" value="通过消息幂解决重复消费" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
