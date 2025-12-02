@@ -4,16 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2dfd02b1-2630-4ecf-9997-c11047de6622" name="更改" comment="重构短链接系统为微服务的方式调用">
+    <list default="true" id="2dfd02b1-2630-4ecf-9997-c11047de6622" name="更改" comment="修改布隆过滤器名称">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/src/main/java/com/nageoffer/shortlink/admin/common/biz/user/UserTransmitFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/main/java/com/nageoffer/shortlink/admin/common/biz/user/UserTransmitFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/src/main/java/com/nageoffer/shortlink/admin/common/enums/UserErrorCodeEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/main/java/com/nageoffer/shortlink/admin/common/enums/UserErrorCodeEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/src/main/java/com/nageoffer/shortlink/admin/config/UserConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/main/java/com/nageoffer/shortlink/admin/config/UserConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/src/main/java/com/nageoffer/shortlink/admin/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/admin/src/main/java/com/nageoffer/shortlink/admin/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway/src/main/java/com/nageoffer/shortlink/gateway/dto/GatewayErrorResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/src/main/java/com/nageoffer/shortlink/gateway/dto/GatewayErrorResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/src/main/resources/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -190,23 +182,7 @@
       <workItem from="1763168485603" duration="386000" />
       <workItem from="1763168887696" duration="57983000" />
       <workItem from="1763792546172" duration="9611000" />
-      <workItem from="1764250097650" duration="37111000" />
-    </task>
-    <task id="LOCAL-00024" summary="短链接分组分表">
-      <option name="closed" value="true" />
-      <created>1763461922055</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1763461922055</updated>
-    </task>
-    <task id="LOCAL-00025" summary="优化短链接后管远程调用包目录">
-      <option name="closed" value="true" />
-      <created>1763471633185</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1763471633185</updated>
+      <workItem from="1764250097650" duration="41102000" />
     </task>
     <task id="LOCAL-00026" summary="完善后管分组功能">
       <option name="closed" value="true" />
@@ -584,7 +560,23 @@
       <option name="project" value="LOCAL" />
       <updated>1764505401246</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <task id="LOCAL-00073" summary="重构短链接系统网关">
+      <option name="closed" value="true" />
+      <created>1764597187649</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1764597187649</updated>
+    </task>
+    <task id="LOCAL-00074" summary="修改布隆过滤器名称">
+      <option name="closed" value="true" />
+      <created>1764643945191</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1764643945191</updated>
+    </task>
+    <option name="localTasksCounter" value="75" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -614,8 +606,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="开发短链接监控分页查询日志并优化时间复杂度" />
-    <MESSAGE value="开发短链接监控分页功能" />
     <MESSAGE value="开发短链接监控单个链接PV,UV,UIP" />
     <MESSAGE value="开发短链接监控分组链接PV,UV,UIP" />
     <MESSAGE value="开发短链接监控分组链接日志" />
@@ -639,7 +629,9 @@
     <MESSAGE value="修复在相同时间创建短链接BUG" />
     <MESSAGE value="修复在相同时间创建短链接未加事务" />
     <MESSAGE value="重构短链接系统为微服务的方式调用" />
-    <option name="LAST_COMMIT_MESSAGE" value="重构短链接系统为微服务的方式调用" />
+    <MESSAGE value="重构短链接系统网关" />
+    <MESSAGE value="修改布隆过滤器名称" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改布隆过滤器名称" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
