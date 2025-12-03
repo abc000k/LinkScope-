@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2dfd02b1-2630-4ecf-9997-c11047de6622" name="更改" comment="修改布隆过滤器名称">
+    <list default="true" id="2dfd02b1-2630-4ecf-9997-c11047de6622" name="更改" comment="删除延迟队列功能">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -182,31 +182,7 @@
       <workItem from="1763168485603" duration="386000" />
       <workItem from="1763168887696" duration="57983000" />
       <workItem from="1763792546172" duration="9611000" />
-      <workItem from="1764250097650" duration="41102000" />
-    </task>
-    <task id="LOCAL-00026" summary="完善后管分组功能">
-      <option name="closed" value="true" />
-      <created>1763473634247</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1763473634247</updated>
-    </task>
-    <task id="LOCAL-00027" summary="修复登入功能,并删除电话加密">
-      <option name="closed" value="true" />
-      <created>1763528445413</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1763528445413</updated>
-    </task>
-    <task id="LOCAL-00028" summary="修复登入功能,并删除电话加密">
-      <option name="closed" value="true" />
-      <created>1763528463472</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1763528463472</updated>
+      <workItem from="1764250097650" duration="47033000" />
     </task>
     <task id="LOCAL-00029" summary="修复登入功能,并删除电话加密">
       <option name="closed" value="true" />
@@ -576,7 +552,31 @@
       <option name="project" value="LOCAL" />
       <updated>1764643945191</updated>
     </task>
-    <option name="localTasksCounter" value="75" />
+    <task id="LOCAL-00075" summary="修改用户注册异常">
+      <option name="closed" value="true" />
+      <created>1764645376450</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1764645376451</updated>
+    </task>
+    <task id="LOCAL-00076" summary="判断用户是否为等人用户">
+      <option name="closed" value="true" />
+      <created>1764645451491</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1764645451491</updated>
+    </task>
+    <task id="LOCAL-00077" summary="删除延迟队列功能">
+      <option name="closed" value="true" />
+      <created>1764645788051</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1764645788053</updated>
+    </task>
+    <option name="localTasksCounter" value="78" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -606,9 +606,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="开发短链接监控单个链接PV,UV,UIP" />
-    <MESSAGE value="开发短链接监控分组链接PV,UV,UIP" />
-    <MESSAGE value="开发短链接监控分组链接日志" />
     <MESSAGE value="开发短链接創建默認,跳轉域名:端口" />
     <MESSAGE value="开发短链接批量创建功能" />
     <MESSAGE value="开发短链接前端" />
@@ -631,7 +628,10 @@
     <MESSAGE value="重构短链接系统为微服务的方式调用" />
     <MESSAGE value="重构短链接系统网关" />
     <MESSAGE value="修改布隆过滤器名称" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改布隆过滤器名称" />
+    <MESSAGE value="修改用户注册异常" />
+    <MESSAGE value="判断用户是否为等人用户" />
+    <MESSAGE value="删除延迟队列功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="删除延迟队列功能" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
