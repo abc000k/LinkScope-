@@ -4,12 +4,11 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.bym.shortlink</groupId>
-        <artifactId>MyShortlink-all</artifactId>
+        <groupId>com.nageoffer.shortlink</groupId>
+        <artifactId>shortlink-all</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-
-    <artifactId>shorttlink-admin</artifactId>
+    <artifactId>shortlink-admin</artifactId>
     <dependencies>
         <!--     启动依赖   -->
         <dependency>
@@ -21,6 +20,11 @@
             <artifactId>mybatis-plus-boot-starter</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>5.8.25</version> <!-- 稳定版，兼容 Spring Boot 3.0+ -->
+        </dependency>
         <dependency>
             <groupId>com.mysql</groupId>
             <artifactId>mysql-connector-j</artifactId>

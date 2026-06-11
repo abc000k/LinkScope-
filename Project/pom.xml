@@ -4,12 +4,11 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.bym.shortlink</groupId>
-        <artifactId>MyShortlink-all</artifactId>
+        <groupId>com.nageoffer.shortlink</groupId>
+        <artifactId>shortlink-all</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.bym.shortlink.Project</groupId>
     <artifactId>shortlink-Project</artifactId>
 
     <dependencies>
@@ -17,6 +16,12 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <!-- Hutool 核心工具包（包含所有常用工具类） -->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>5.8.25</version> <!-- 版本可根据需求调整，建议使用最新稳定版 -->
         </dependency>
         <dependency>
             <groupId>com.baomidou</groupId>

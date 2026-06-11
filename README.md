@@ -1,98 +1,103 @@
-[![build status](https://github.com/opengoofy/hippo4j/actions/workflows/ci.yml/badge.svg?event=push)](https://github.com/opengoofy/hippo4j)
-[![codecov](https://codecov.io/gh/opengoofy/hippo4j/branch/develop/graph/badge.svg?token=WBUVJN107I)](https://codecov.io/gh/opengoofy/hippo4j)
-![maven](https://img.shields.io/maven-central/v/com.alibaba.otter/canal.svg)
-[![license](https://img.shields.io/badge/license-Apache--2.0-green.svg)](http://www.apache.org/licenses/LICENSE-2.0)
-![](https://img.shields.io/github/contributors/opengoofy/hippo4j)
-[![percentage of issues still open](http://isitmaintained.com/badge/open/opengoofy/hippo4j.svg)](http://isitmaintained.com/project/opengoofy/hippo4j "percentage of issues still open")
+# MyShortlink
 
-![GitHub last commit (branch)](https://img.shields.io/github/last-commit/opengoofy/hippo4j/develop?color=orange)
+MyShortlink 是一个基于 Spring Boot、Spring Cloud 和 Vue 3 的 SaaS 短链接系统，包含短链接创建、跳转、分组管理、访问统计、回收站、用户登录和网关鉴权等核心能力。项目采用前后端分离和微服务拆分，适合作为 Java 后端方向的实战项目展示。
 
-## 简介
+## 项目亮点
 
-![](https://oss.open8gu.com/image-20231115133642504.png)
+- 短链接生成与跳转：支持长链接转短链接，并通过短码完成重定向访问。
+- 分组与回收站：支持短链接按分组管理、删除、恢复和彻底移除。
+- 访问统计：统计 PV、UV、UIP、浏览器、操作系统、设备、网络类型和地区等访问数据。
+- 高并发设计：结合 Redis、布隆过滤器、分库分表和消息队列思路提升查询与写入能力。
+- 网关鉴权：通过 Spring Cloud Gateway 统一路由请求并校验登录令牌。
+- 风控限流：支持用户维度的访问频控，降低恶意请求对系统的影响。
+- 前端控制台：基于 Vue 3、Element Plus 和 ECharts 实现短链接管理与数据可视化。
 
-短链接（Short Link）是指将一个原始的长 URL（Uniform Resource Locator）通过特定的算法或服务转化为一个更短、易于记忆的
-URL。短链接通常只包含几个字符，而原始的长 URL 可能会非常长。
+## 技术栈
 
-短链接的原理非常简单，通过一个原始链接生成个相对短的链接，然后通过访问短链接跳转到原始链接。
+| 模块 | 技术 |
+| --- | --- |
+| 后端 | Java 17, Spring Boot 3, Spring Cloud, MyBatis-Plus |
+| 网关 | Spring Cloud Gateway |
+| 数据库 | MySQL, Apache ShardingSphere |
+| 缓存 | Redis, Redisson |
+| 前端 | Vue 3, Vite, Element Plus, ECharts, Axios |
+| 工程 | Maven, Nacos |
 
-如果更细节一些的话，那就是：
+## 模块说明
 
-1. **生成唯一标识符**：当用户输入或提交一个长 URL 时，短链接服务会生成一个唯一的标识符或者短码。
-2. **将标识符与长 URL 关联**：短链接服务将这个唯一标识符与用户提供的长 URL 关联起来，并将其保存在数据库或者其他持久化存储中。
-3. **创建短链接**：将生成的唯一标识符加上短链接服务的域名（例如：http://nurl.ink ）作为前缀，构成一个短链接。
-4. **重定向**：当用户访问该短链接时，短链接服务接收到请求后会根据唯一标识符查找关联的长 URL，然后将用户重定向到这个长 URL。
-5. **跟踪统计**：一些短链接服务还会提供访问统计和分析功能，记录访问量、来源、地理位置等信息。
+```text
+MyShortlink
+├── admin        # 用户、分组、后台管理接口
+├── Project      # 短链接核心业务、跳转与访问统计
+├── gateway      # API 网关与 Token 校验
+└── console-vue  # 前端控制台
+```
 
-短链接经常出现在咱们日常生活中，大家总是能在某些活动节日里收到各种营销短信，里边就会出现短链接。帮助企业在营销活动中，识别用户行为、点击率等关键信息监控。
+## 本地运行
 
-![](https://oss.open8gu.com/IMG_9858-20231126.jpg)
+### 环境要求
 
-主要作用包括但不限于以下几个方面：
+- JDK 17+
+- Maven 3.8+
+- Node.js 16+
+- MySQL 8+
+- Redis
+- Nacos
 
-- **提升用户体验**：用户更容易记忆和分享短链接，增强了用户的体验。
-- **节省空间**：短链接相对于长 URL 更短，可以节省字符空间，特别是在一些限制字符数的场合，如微博、短信等。
-- **美化**：短链接通常更美观、简洁，不会包含一大串字符。
-- **统计和分析**：可以追踪短链接的访问情况，了解用户的行为和喜好。
+### 后端配置
 
-## 官方文档
+默认配置已经移除个人本地地址和密码。运行前请根据自己的环境调整以下配置文件：
 
-- 什么是 SaaS 短链接系统：[https://nageoffer.com/shortlink](https://nageoffer.com/shortlink)
-- 🔥SaaS 短链接视频教程：[https://nageoffer.com/shortlink/video](https://nageoffer.com/shortlink/video)
+- `admin/src/main/resources/application.yaml`
+- `Project/src/main/resources/application.yaml`
+- `gateway/src/main/resources/application.yaml`
+- `admin/src/main/resources/shardingsphere-config-dev.yaml`
+- `Project/src/main/resources/shardingsphere-config-dev.yaml`
 
----
+常用环境变量：
 
-在线体验地址：[SaaS短链接演示环境](http://shortlink.nageoffer.com)
+```bash
+REDIS_HOST=127.0.0.1
+REDIS_PORT=6379
+REDIS_PASSWORD=
+NACOS_SERVER_ADDR=127.0.0.1:8848
+AMAP_KEY=
+```
 
-受限于网络安全规则，短链接跳转的目标网址仅支持 [拿个offer](https://nageoffer.com)、[知乎](https://zhihu.com)、[掘金](https://juejin.cn)、[博客园](https://cnblogs.com) 域名下所属链接。
+ShardingSphere 配置文件中的 MySQL 地址、用户名和密码为示例值，实际运行时请改成自己的数据库配置。
 
----
+### 启动后端
 
-## 技术架构
+```bash
+mvn clean package -DskipTests
+```
 
-在系统设计中，采用最新 JDK17 + SpringBoot3&SpringCloud 微服务架构，构建高并发、大数据量下仍然能提供高效可靠的短链接生成服务。
+分别启动以下 Spring Boot 应用：
 
-通过学习短链接项目，不仅能了解其运作机制，还能接触最新技术体系带来的新特性，从而拓展技术视野并提升自身技术水平。
+- `com.nageoffer.shortlink.admin.ShortLinkAdminApplication`
+- `com.nageoffer.shortlink.project.ShortLinkApplication`
+- `com.nageoffer.shortlink.gateway.GatewayServiceApplication`
 
-![](https://oss.open8gu.com/image-20231026132606180.png)
+### 启动前端
 
-## 加群沟通
+```bash
+cd console-vue
+npm install
+npm run dev
+```
 
-开源不易，右上角点个 Star 鼓励一下吧！
+## 接口端口
 
-如果大家想要实时关注 SaaS 短链接更新的文章以及分享的干货的话，可以关注我的公众号：`马丁玩编程`。
+| 服务 | 默认端口 |
+| --- | --- |
+| gateway | 8000 |
+| project | 8001 |
+| admin | 8002 |
 
-使用过程中有任何问题，或者对项目有什么建议，添加好友备注：`link`，领取项目学习资料，和 `4000+` 志同道合的朋友交流讨论。
+## 简历描述参考
 
-![](https://oss.open8gu.com/martin-tryoffer.png)
+SaaS 短链接系统：基于 Spring Boot 3、Spring Cloud Gateway、Redis、MySQL、ShardingSphere 和 Vue 3 实现短链接创建、跳转、分组管理、回收站、访问统计和网关鉴权。通过 Redis 缓存、布隆过滤器、分库分表和异步统计等设计提升系统在高并发访问场景下的性能与可扩展性。
 
-## 项目质量怎么样？
+## License
 
-短链接项目采用 SaaS 方式开发。"SaaS"代表“软件即服务”（Software as a Service），与传统的软件模型不同，SaaS
-不需要用户在本地安装和维护软件，而是通过互联网直接访问在线应用程序。
-
-既然是 SaaS 系统，那势必会带来 N 多个问题。在我看来，问题即项目亮点。一起来看下：
-
-1. **海量并发**：可能会面对大量用户同时访问的情况，尤其在高峰期，这会对系统的性能和响应速度提出很高的要求。
-2. **海量存储**：可能需要存储大量的用户数据，包括数据库、缓存等，需要足够的存储空间和高效的存储管理方案。
-3. **多租户场景**：通常支持多个租户共享同一套系统，需要保证租户间的数据隔离、安全性和性能。
-4. **数据安全性**：需要保证用户数据的安全性和隐私，防止未经授权的访问和数据泄露。
-5. **扩展性&可伸缩性**：需要具备良好的扩展性，以应对用户数量和业务规模的增长。
-
-项目实现过程中会充分考虑以上问题，最终实现高可用、可扩展、支持海并发以及存储的 SaaS 短链接系统。另外，会额外交付精美前端控制台页面，学生可用于校招、毕设等场景。
-
-可谓是出门面试，必备好项目！
-
-## 如何学习？
-
-我个人是偏向于通过文档进行学习，在写 12306 铁路购票系统的时候，写了大量的源码、设计以及从零到一的文档。最终呈现给用户的就是，内容接近`130`篇，文字`20万`的 12306 文档库。
-
-但是部分用户在学习过程中，更希望能够通过项目视频学习搭配文档的形式学习。大家都知道，咱们这里只要建议合理都会支持。所以我在开始写 SaaS 短链接项目时，结合大家的建议和想法，最终呈现给大家下面的成果。
-
-视频大概在 80 小节上下，课程总时长在 20-30 小时左右。跟着视频目录看下去，绝对能从零到一复刻出支持海量并发、海量存储的 SaaS 短链接系统。
-
-> 如果要问，那就是项目代码是我从零到一录视频时写的。
-
-短链接视频学习地址：[手摸手视频学习SaaS短链接项目](https://nageoffer.com/shortlink/video/)
-
-![](https://oss.open8gu.com/image-20231122173916783.png)
+本项目仅用于学习和个人项目展示。
